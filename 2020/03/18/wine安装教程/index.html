@@ -16,8 +16,9 @@
 <meta property="og:description" content="wine5安装教程由于篇幅有限下篇讲解通用的wine安装方法:编译安装ubuntu下的安装方法先更新一下软件清单1apt update 安装wine的依赖这里先安装依赖的库,这里推荐使用apt-fast来多线程加速下载具体方法请参考:apt-fast的安装方法1add-apt-repository ppa:cybermax-dexter&#x2F;sdl2-backport 开始安装依赖1apt-">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-03-18T02:02:44.000Z">
-<meta property="article:modified_time" content="2020-03-18T10:09:28.146Z">
+<meta property="article:modified_time" content="2020-03-18T12:46:40.125Z">
 <meta property="article:author" content="Chen Jaly">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="每日一点" type="application/atom+xml">
@@ -59,7 +60,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/false">随笔</a></li>
+				<li><a href="/">文章分类</a></li>
 	        
 			</ul>
 		</nav>
@@ -135,7 +136,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/false">随笔</a></li>
+					<li style="width: 50%"><a href="/">文章分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -210,12 +211,18 @@
     </div>
     <div class="article-info article-info-index">
       
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
       
-      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -278,16 +285,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2020/03/17/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -406,6 +403,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
