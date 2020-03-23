@@ -142,6 +142,94 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-wine安装教程-通过编译源代码安装" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/22/wine%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B-%E9%80%9A%E8%BF%87%E7%BC%96%E8%AF%91%E6%BA%90%E4%BB%A3%E7%A0%81%E5%AE%89%E8%A3%85/">wine安装教程--通过编译源代码安装</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/22/wine%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B-%E9%80%9A%E8%BF%87%E7%BC%96%E8%AF%91%E6%BA%90%E4%BB%A3%E7%A0%81%E5%AE%89%E8%A3%85/" class="archive-article-date">
+  	<time datetime="2020-03-22T21:22:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="这篇文章讲解wine的另一种安装方法–编译安装"><a href="#这篇文章讲解wine的另一种安装方法–编译安装" class="headerlink" title="这篇文章讲解wine的另一种安装方法–编译安装"></a><strong>这篇文章讲解wine的另一种安装方法–编译安装</strong></h1><h2 id="下载并解压源码"><a href="#下载并解压源码" class="headerlink" title="下载并解压源码"></a>下载并解压源码</h2><h3 id="我这里展示的是wine-5-4的源码下载链接-具体请替换成对应的版本号"><a href="#我这里展示的是wine-5-4的源码下载链接-具体请替换成对应的版本号" class="headerlink" title="我这里展示的是wine 5.4的源码下载链接,具体请替换成对应的版本号"></a>我这里展示的是wine 5.4的源码下载链接,具体请替换成对应的版本号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine&#x2F;source&#x2F;5.x&#x2F;wine-5.4.tar.xz</span><br></pre></td></tr></table></figure>
+<h4 id="下载完成后解压并进入解压的源码文件夹"><a href="#下载完成后解压并进入解压的源码文件夹" class="headerlink" title="下载完成后解压并进入解压的源码文件夹"></a>下载完成后解压并进入解压的源码文件夹</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xz -d wine-5.4.tar.xz</span><br><span class="line">tar xvf wine-5.4.tar</span><br><span class="line">cd wine-5.4</span><br></pre></td></tr></table></figure>
+<h2 id="生成makefile"><a href="#生成makefile" class="headerlink" title="生成makefile"></a>生成makefile</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure</span><br></pre></td></tr></table></figure>
+<h3 id="输入完这个指令后会检查编译环境-如果没问题就很生成makefile文件"><a href="#输入完这个指令后会检查编译环境-如果没问题就很生成makefile文件" class="headerlink" title="输入完这个指令后会检查编译环境,如果没问题就很生成makefile文件"></a>输入完这个指令后会检查编译环境,如果没问题就很生成makefile文件</h3><h4 id="我这里遇到了"><a href="#我这里遇到了" class="headerlink" title="我这里遇到了"></a>我这里遇到了</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">configure: error: Cannot build a 32-bit program, you need to install 32-bit development libraries.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gcc-multilib g++-multilib</span><br><span class="line">即可</span><br></pre></td></tr></table></figure>
+<h4 id="再次-configure-出现错误"><a href="#再次-configure-出现错误" class="headerlink" title="再次./configure,出现错误"></a>再次./configure,出现错误</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">configure: error: no suitable flex found. Please install the &#39;flex&#39; package.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install flex</span><br><span class="line">即可</span><br></pre></td></tr></table></figure>
+<h4 id="再次-configure-双出现错误"><a href="#再次-configure-双出现错误" class="headerlink" title="再次./configure,双出现错误"></a>再次./configure,双出现错误</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">configure: error: no suitable bison found. Please install the &#39;bison&#39; package.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt install bison</span><br><span class="line">即可</span><br></pre></td></tr></table></figure>
+<h4 id="再次-configure-又双出现错误"><a href="#再次-configure-又双出现错误" class="headerlink" title="再次./configure,又双出现错误"></a>再次./configure,又双出现错误</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">configure: error: X 32-bit development files not found. Wine will be built</span><br><span class="line">without X support, which probably isn&#39;t what you want. You will need</span><br><span class="line">to install 32-bit development packages of Xlib at the very least.</span><br><span class="line">Use the --without-x option if you really want this.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install libx11-dev:i386</span><br><span class="line">即可</span><br></pre></td></tr></table></figure>
+<h4 id="没错编译环境还是没完😂-显示错误"><a href="#没错编译环境还是没完😂-显示错误" class="headerlink" title="没错编译环境还是没完😂,显示错误"></a>没错编译环境还是没完😂,显示错误</h4><h1 id="由于我也暂时没有找到解决方法"><a href="#由于我也暂时没有找到解决方法" class="headerlink" title="由于我也暂时没有找到解决方法"></a><strong>由于我也暂时没有找到解决方法</strong></h1><h1 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a><strong>未完待续</strong></h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">wine</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/22/wine%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B-%E9%80%9A%E8%BF%87%E7%BC%96%E8%AF%91%E6%BA%90%E4%BB%A3%E7%A0%81%E5%AE%89%E8%A3%85/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-wine安装教程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -149,7 +237,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/18/wine%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">wine安装教程</a>
+      <a class="article-title" href="/2020/03/18/wine%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">wine安装教程--通过官方库安装</a>
     </h1>
   
 
@@ -162,7 +250,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="wine5安装教程"><a href="#wine5安装教程" class="headerlink" title="wine5安装教程"></a><strong>wine5安装教程</strong></h1><h2 id="由于篇幅有限下篇讲解通用的wine安装方法-编译安装"><a href="#由于篇幅有限下篇讲解通用的wine安装方法-编译安装" class="headerlink" title="由于篇幅有限下篇讲解通用的wine安装方法:编译安装"></a>由于篇幅有限下篇讲解通用的wine安装方法:编译安装</h2><h2 id="ubuntu下的安装方法"><a href="#ubuntu下的安装方法" class="headerlink" title="ubuntu下的安装方法"></a><em>ubuntu下的安装方法</em></h2><h3 id="先更新一下软件清单"><a href="#先更新一下软件清单" class="headerlink" title="先更新一下软件清单"></a>先更新一下软件清单</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure>
+        <h2 id="由于篇幅有限下篇讲解通用的wine安装方法-编译安装"><a href="#由于篇幅有限下篇讲解通用的wine安装方法-编译安装" class="headerlink" title="由于篇幅有限下篇讲解通用的wine安装方法:编译安装"></a>由于篇幅有限下篇讲解通用的wine安装方法:编译安装</h2><h2 id="ubuntu下的安装方法"><a href="#ubuntu下的安装方法" class="headerlink" title="ubuntu下的安装方法"></a><em>ubuntu下的安装方法</em></h2><h3 id="先更新一下软件清单"><a href="#先更新一下软件清单" class="headerlink" title="先更新一下软件清单"></a>先更新一下软件清单</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure>
 <h3 id="安装wine的依赖"><a href="#安装wine的依赖" class="headerlink" title="安装wine的依赖"></a>安装wine的依赖</h3><h4 id="这里先安装依赖的库"><a href="#这里先安装依赖的库" class="headerlink" title="这里先安装依赖的库,"></a>这里先安装依赖的库,</h4><h5 id="这里推荐使用apt-fast来多线程加速下载具体方法请参考-apt-fast的安装方法"><a href="#这里推荐使用apt-fast来多线程加速下载具体方法请参考-apt-fast的安装方法" class="headerlink" title="这里推荐使用apt-fast来多线程加速下载具体方法请参考:apt-fast的安装方法"></a>这里推荐使用apt-fast来多线程加速下载具体方法请参考:<a href="https://elementzero.gitee.io/blog/bdlguide/#1%EF%BC%8C%E5%AE%89%E8%A3%85apt-fast%E5%8A%A0%E9%80%9F%E4%B8%8B%E8%BD%BD%EF%BC%88%E4%B8%BB%E8%A6%81%E6%98%AF%E4%B8%BAEZ%E4%B8%8B%E8%BD%BD%E5%81%9A%E5%87%86%E5%A4%87%EF%BC%89" target="_blank" rel="noopener">apt-fast的安装方法</a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add-apt-repository ppa:cybermax-dexter&#x2F;sdl2-backport</span><br></pre></td></tr></table></figure>
 <h4 id="开始安装依赖"><a href="#开始安装依赖" class="headerlink" title="开始安装依赖"></a>开始安装依赖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-fast install libfaudio0</span><br></pre></td></tr></table></figure>
 <h3 id="正式安装wine"><a href="#正式安装wine" class="headerlink" title="正式安装wine"></a>正式安装wine</h3><h4 id="导入wine官方密匙"><a href="#导入wine官方密匙" class="headerlink" title="导入wine官方密匙"></a>导入wine官方密匙</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget -nc https:&#x2F;&#x2F;dl.winehq.org&#x2F;wine-builds&#x2F;winehq.key</span><br><span class="line">apt-key add winehq.key</span><br></pre></td></tr></table></figure>
